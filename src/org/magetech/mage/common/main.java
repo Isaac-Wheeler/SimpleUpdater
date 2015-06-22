@@ -19,7 +19,7 @@ public class main {
 	 * @param args array with the download location then the file being updated
 	 */
 	public static void main(String[] args) {
-		if (args.length == 0) {
+		if (args.length == 0 || args.length < 3) {
 			System.out.println("missing download location and Filename");
 			System.exit(4);
 		}
@@ -40,7 +40,7 @@ public class main {
 			System.out
 					.println("Error with downloading the file starting old version");
 			try {
-				Runtime.getRuntime().exec("java -jar " + OldFileName);
+				Runtime.getRuntime().exec(args[2] + OldFileName);
 			} catch (IOException e1) {
 				System.err.println("Error with starting old verison");
 				e.printStackTrace();
